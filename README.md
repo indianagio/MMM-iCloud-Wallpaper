@@ -1,3 +1,6 @@
+WORK IN PROGRESS.... MAY NOT START
+
+
 # MMM-iCloud-Wallpaper
 
 A dedicated MagicMirror² module that downloads photos from a public iCloud Shared Album to local storage and displays them in a shuffled slideshow.
