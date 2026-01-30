@@ -1,0 +1,22 @@
+{
+  "name": "MMM-iCloud-Wallpaper",
+  "version": "1.0.0",
+  "description": "MagicMirror module to sync and display photos from a public iCloud Shared Album.",
+  "main": "MMM-iCloud-Wallpaper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "magicmirror",
+    "smart mirror",
+    "icloud",
+    "wallpaper",
+    "slideshow"
+  ],
+  "author": "Indianagio",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "glob": "^7.2.0"
+  }
+}
