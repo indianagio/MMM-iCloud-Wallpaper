@@ -51,4 +51,20 @@ echo "$ASSETS" | jq -r '.items | to_entries[] | .value.url_location + .value.url
     fi
 done
 
-echo "Download sync complete."
+echo "Download sync complete. Starting optimization..."
+
+# Optimize and Resize for Portrait 1080x1920
+# Requires ImageMagick
+if command -v mogrify &> /dev/null; then
+    echo "Resizing images to 1080x1920 (Center Crop) with High Quality..."
+    # -resize 1080x1920^ : Resize minimal dimension to cover the area
+    # -gravity center    : Center the crop
+    # -extent 1080x1920  : Crop to exact size
+    # -quality 92        : High JPEG quality
+    # -interlace Plane   : Progressive JPEG for smoother loading
+    mogrify -resize 1080x1920^ -gravity center -extent 1080x1920 -quality 92 -interlace Plane "$TARGET_DIR"/*.jpeg
+    echo "Optimization complete."
+else
+    echo "ImageMagick (mogrify) not found. Skipping resize."
+    echo "Please install it: sudo apt-get install imagemagick"
+fi
