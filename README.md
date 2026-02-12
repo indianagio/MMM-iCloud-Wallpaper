@@ -1,5 +1,3 @@
-WORK IN PROGRESS.... MAY NOT START
-
 
 # MMM-iCloud-Wallpaper
 
