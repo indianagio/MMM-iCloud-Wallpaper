@@ -15,6 +15,15 @@ Module.register("MMM-iCloud-Wallpaper", {
     
     // Manda SUBITO la config al backend
     this.sendSocketNotification("INIT_MODULE", this.config);
+
+    // FIX: Periodically request new random images from the backend
+    var self = this;
+    // Clear any existing interval just in case
+    if (this.refreshTimer) clearInterval(this.refreshTimer);
+    
+    this.refreshTimer = setInterval(function() {
+      self.sendSocketNotification("GET_NEW_IMAGES");
+    }, this.config.updateInterval);
   },
 
   getStyles: function () {
